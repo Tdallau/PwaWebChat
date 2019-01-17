@@ -12,6 +12,9 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ChatsComponent } from './chats/chats.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ChatComponent } from './chats/chat/chat.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    ChatsComponent,
+    SettingsComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
