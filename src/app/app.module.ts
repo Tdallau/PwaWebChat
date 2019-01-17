@@ -7,14 +7,22 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppMaterialModule } from './app-material/app-material.module';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './navigation/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChatsComponent } from './chats/chats.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chats/chat/chat.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './auth-dialog/login/login.component';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
+import { RegisterComponent } from './auth-dialog/register/register.component';
 
 
 @NgModule({
@@ -25,6 +33,12 @@ import { ChatComponent } from './chats/chat/chat.component';
     ChatsComponent,
     SettingsComponent,
     ChatComponent,
+    LoginComponent,
+    AuthDialogComponent,
+    RegisterComponent,
+  ],
+  entryComponents: [
+    AuthDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +47,11 @@ import { ChatComponent } from './chats/chat/chat.component';
     AppMaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     FormsModule, ReactiveFormsModule,
-    FlexLayoutModule
-
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // i
+    AngularFireStorageModule
   ],
   exports: [
     AppMaterialModule

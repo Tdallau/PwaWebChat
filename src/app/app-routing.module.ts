@@ -6,12 +6,11 @@ import { ChatComponent } from './chats/chat/chat.component';
 import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'chats', component: ChatsComponent },
   { path: 'chats/{id}', component: ChatComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

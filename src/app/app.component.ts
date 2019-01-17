@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { MatSnackBar } from '@angular/material';
-
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { AuthService } from './_services/auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

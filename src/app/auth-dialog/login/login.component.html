@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Login</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="form" fxLayout="column">
+
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+  </form>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="dialog.onNoClick()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="tryLogin(form.value)" [disabled]="form.invalid">Login</button>
+  <button class="mat-button mat-primary" (click)="LoadRegister()">Register</button>
+</mat-dialog-actions>
