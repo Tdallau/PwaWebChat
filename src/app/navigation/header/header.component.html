@@ -3,7 +3,7 @@
   Home
 </a>
 
-<a mat-button routerLink="/chats">
+<a mat-button routerLink="/chats" *ngIf="user">
   <mat-icon>chat</mat-icon>
   Chats
 </a>

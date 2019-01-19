@@ -14,6 +14,9 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth, private db: AngularFirestore) {
     this.user = afAuth.authState;
+    this.user.subscribe(auth => {
+      localStorage.setItem('loggedIn', JSON.stringify(auth));
+    })
   }
 
   public doRegister(value) {
@@ -27,6 +30,7 @@ export class AuthService {
   }
 
   public logout() {
+    localStorage.removeItem('loggedIn');
     return this.afAuth.auth.signOut();
   }
 

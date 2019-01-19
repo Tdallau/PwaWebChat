@@ -24,6 +24,11 @@ import { LoginComponent } from './auth-dialog/login/login.component';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { RegisterComponent } from './auth-dialog/register/register.component';
 
+import { HttpClientModule } from '@angular/common/http'; 
+import { 
+  AuthGuardService as AuthGuard 
+} from './_services/auth/auth-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -51,12 +56,13 @@ import { RegisterComponent } from './auth-dialog/register/register.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // i
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule,
   ],
   exports: [
     AppMaterialModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
