@@ -1,3 +1,35 @@
-<p>
-  chats works!
-</p>
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <span class="title">Chats</span>
+    <span class="example-spacer"></span>
+    <i class="material-icons hover" (click)="showSearch()">
+      search
+    </i>
+    <i class="material-icons hover" (click)="openAddChat()">
+      add
+    </i>
+  </mat-toolbar-row>
+</mat-toolbar>
+<span fxLayout="column" class="searchBar" *ngIf="search">
+  <mat-form-field>
+    <input matInput placeholder="Search" [(ngModel)]="searchText">
+  </mat-form-field>
+</span>
+
+<span *ngIf="chats.length > 0">
+    <span *ngFor="let chat of chats | filter : searchText" class="hover">
+        <mat-card class="example-card" (click)="goToChat(chat.key)">
+            <mat-card-header>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <img mat-card-avatar [src]="chat.image" alt="">
+              <mat-card-title>{{chat.name}}</mat-card-title>
+              <mat-card-subtitle>{{chat.lastMessage}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+    </span>
+</span>
+<span *ngIf="chats.length === 0">
+  No Chats where found
+</span>
+
+

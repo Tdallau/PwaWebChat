@@ -24,10 +24,11 @@ import { LoginComponent } from './auth-dialog/login/login.component';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { RegisterComponent } from './auth-dialog/register/register.component';
 
-import { HttpClientModule } from '@angular/common/http'; 
-import { 
-  AuthGuardService as AuthGuard 
+import { HttpClientModule } from '@angular/common/http';
+import {
+  AuthGuardService as AuthGuard
 } from './_services/auth/auth-guard.service';
+import { FilterPipe } from './_pipes/filter.pipe';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {
     LoginComponent,
     AuthDialogComponent,
     RegisterComponent,
+    FilterPipe,
   ],
   entryComponents: [
     AuthDialogComponent,

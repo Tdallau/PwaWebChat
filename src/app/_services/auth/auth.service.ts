@@ -16,7 +16,7 @@ export class AuthService {
     this.user = afAuth.authState;
     this.user.subscribe(auth => {
       localStorage.setItem('loggedIn', JSON.stringify(auth));
-    })
+    });
   }
 
   public doRegister(value) {
